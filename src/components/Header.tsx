@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Download, Search } from 'lucide-react';
 import type { Category } from '../types';
 

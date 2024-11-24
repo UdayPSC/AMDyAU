@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { Pencil, Trash2 } from 'lucide-react';
 import type { LaborerWithHours } from '../types';
 import { debounce } from '../utils/debounce';
