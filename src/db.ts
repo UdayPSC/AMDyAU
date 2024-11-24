@@ -1,4 +1,4 @@
-import firebase from "firebase/app";
+
 import "firebase/firestore";
 import { db } from "./firebaseConfig";
 import {
@@ -11,30 +11,29 @@ import {
   query,
   where,
   Timestamp,
-  orderBy,
-  DocumentSnapshot
+  orderBy
 } from "firebase/firestore";
 import { Category, Laborer, LaborHours, LaborerWithHours } from './types';
 import { startOfMonth, endOfMonth, format } from 'date-fns';
-import { writeBatch } from "firebase/firestore/lite";
+// import { writeBatch } from "firebase/firestore/lite";
 
 // Firestore collection references
 const laborersCollection = collection(db, "laborers");
 const laborHoursCollection = collection(db, "laborHours");
 
 // Helper function to convert Firestore doc to Laborer
-const convertDocToLaborer = (doc: DocumentSnapshot): Laborer => {
-  const data = doc.data();
-  if (!data) throw new Error('Document data is undefined');
+// const convertDocToLaborer = (doc: DocumentSnapshot): Laborer => {
+//   const data = doc.data();
+//   if (!data) throw new Error('Document data is undefined');
 
-  return {
-    id: data.id || doc.id, // Use the stored id if present; otherwise use string-based doc.id
-    name: data.name,
-    fatherName: data.fatherName,
-    cardNo: data.cardNo,
-    category: data.category as Category
-  };
-};
+//   return {
+//     id: data.id || doc.id, // Use the stored id if present; otherwise use string-based doc.id
+//     name: data.name,
+//     fatherName: data.fatherName,
+//     cardNo: data.cardNo,
+//     category: data.category as Category
+//   };
+// };
 
 // Add a laborer
 export async function addLaborer(laborer: Omit<Laborer, 'id'>): Promise<string> {
