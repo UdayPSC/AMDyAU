@@ -1,3 +1,5 @@
+import firebase from "firebase/app";
+import "firebase/firestore";
 import { db } from "./firebaseConfig";
 import {
   collection,
